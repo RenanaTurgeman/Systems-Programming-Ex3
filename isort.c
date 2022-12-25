@@ -1,4 +1,4 @@
-shift_element(int *arr, int i){
+void shift_element(int *arr, int i){
     int last_index= i;
     while (last_index>0)
     {
@@ -7,6 +7,6 @@ shift_element(int *arr, int i){
     }
 }   
 
-insertion_sort(int *arr, int len){
+// void insertion_sort(int *arr, int len){
     
-}
+// }
