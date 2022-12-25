@@ -1,3 +1,6 @@
+#include <stdio.h>
+
+
 void shift_element(int *arr, int i){
     int last_index= i;
     while (last_index>0)
@@ -10,20 +13,23 @@ void shift_element(int *arr, int i){
 void print_arr (int *arr , int len){
     for (int i = 0; i < len; i++)
     {
-        printf("%d,", *(arr+i));
+        if(i != len-1){
+            printf("%d,", *(arr+i));
+        }
+        else{
+           printf("%d", *(arr+i));
+        }
     }
 }
 
 void insertion_sort(int *arr, int len){
-    int i=1;
-    int key=0;
-    int j=0;
+    int key,j,i;
     int shift=0;
 
-    for ( i ; i < len; i++)
+    for (i=1 ; i < len; i++)
     {
         key =*(arr+i);
-        j--;
+        j= i-1;
 
         while (j>=0 && *(arr+j)>key)
         {
@@ -33,7 +39,8 @@ void insertion_sort(int *arr, int len){
         
         if (shift>0)
         {
-           shift_element(*(arr+j+1), shift);
+            int *pointer = arr+j+1;
+           shift_element(pointer, shift);
            *(arr+(i-shift)) =key;
            shift=0;
         }
