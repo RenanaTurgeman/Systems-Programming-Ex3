@@ -102,3 +102,23 @@ int similar(char *s , char *t, int n){
      return FALSE; 
      
 }
+
+void print_lines(char * str){
+    int line_len=0;
+    int toPrint = FALSE;
+
+    while (line_len !=1)
+    {
+        char line[LINE];
+        line_len= get_line(line);
+        toPrint = substring(line, str);
+
+         if (toPrint)
+         {
+        for (int i = 0; i < line_len; i++){
+                printf("%c",line[i]);
+            }
+         }
+    }
+  
+}
