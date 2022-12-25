@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "isort.h"
 
+#define SIZE 50
+
 //int argc, char const *argv[]
 int main()
 {
