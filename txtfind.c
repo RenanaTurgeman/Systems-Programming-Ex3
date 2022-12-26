@@ -12,7 +12,7 @@ int get_line(char *s){
     char c = getchar();
     int numOfChars=0;
 
-    if (c != '\n'){
+    if (c != '\n'){ //is it neccecary? 
         numOfChars++;
         s[0] = c;
     }
@@ -104,21 +104,46 @@ int similar(char *s , char *t, int n){
 }
 
 void print_lines(char * str){
-    int line_len=0;
-    int toPrint = FALSE;
+    int line_len = 0;
+    int lineToPrint = FALSE;
 
     while (line_len !=1)
-    {
-        char line[LINE];
-        line_len= get_line(line);
-        toPrint = substring(line, str);
+    {        
+        char line[LINE] = {0}; 
+        line_len = get_line(line);
+        lineToPrint = substring(line, str);
 
-         if (toPrint)
+         if (lineToPrint)
          {
         for (int i = 0; i < line_len; i++){
                 printf("%c",line[i]);
             }
          }
     }
-  
+}
+
+
+void print_similar_words(char *str){
+    int word_len = 0;
+    int wordToPrint = FALSE;
+
+    while (word_len != 1)
+    {
+        char word[WORD] = {0};
+        word_len = get_word(word);
+        if (word_len == -1)
+        {
+            return; 
+        }
+        wordToPrint = similar(word,str,1);
+
+        if (wordToPrint)
+        {
+            for (int i = 0; i < word_len; i++)
+            {
+                printf("%c",word[i]);
+            }
+            printf("\n");
+        }
+    }
 }
