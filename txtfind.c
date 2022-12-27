@@ -8,7 +8,7 @@
 #define FALSE 0
 
 int get_line(char *s){
-    printf("Enter a line:");
+    
     char c = getchar();
     int numOfChars=0;
 
@@ -17,7 +17,7 @@ int get_line(char *s){
         s[0] = c;
     }
 
-    for(int i=1; c != '\n' && i< LINE && c!= 'r' && c != EOF; i++){ //maby delete EOF and add \r
+    for(int i=1; c != '\n' && i< LINE && c!= '\r' && c != EOF; i++){ //maby delete EOF and add \r
         c = getchar();
         s[i] = c;
         numOfChars++;
@@ -27,14 +27,14 @@ int get_line(char *s){
 
 
 int get_word(char w[]){
-    printf("Enter a word:");
+    
     char c = getchar();
-    if (c == '\n' || c == ' ' || c == '\t' || c == 'r' ||c == EOF) {
+    if (c == '\n' || c == ' ' || c == '\t' || c == '\r' ||c == EOF) {
         return -1;
     }
     int numOfChars = 0;
     
-    for(int i=0; c != '\n' && c != ' ' && c != '\t' && c!= 'r' && i<WORD && c != EOF ;i++){
+    for(int i=0; c != '\n' && c != ' ' && c != '\t' && c!= '\r' && i<WORD && c != EOF ;i++){
         w[i] = c;
         numOfChars++;
         c = getchar();
