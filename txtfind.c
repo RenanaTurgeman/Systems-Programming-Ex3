@@ -14,24 +14,18 @@ int get_line(char *s)
     int numOfChars = 0;
 
     if (c != '\n')
-    { // is it neccecary?
+    { 
         numOfChars++;
         s[0] = c;
     }
-    c = getchar();
-    if (c == '\n')
+  
+    for (int i = 1; c != '\n' && i < LINE && c != '\r' && c != EOF; i++)
     {
-        s[0] = '\n';
-        return 0;
-    }
-    s[1] = c;
-    for (int i = 2; c != '\n' && i < LINE && c != '\r' && c != EOF; i++)
-    { // maby delete EOF and add \r
         c = getchar();
         s[i] = c;
         numOfChars++;
     }
-    getchar();
+   // getchar();
     return numOfChars - 1;
 }
 
@@ -51,38 +45,62 @@ int get_word(char w[])
         numOfChars++;
         c = getchar();
     }
-    w[numOfChars] = '\n';
+    w[numOfChars] = '\0';
 
     return numOfChars + 1;
 }
 
-int substring(char *str1, char *str2)
-{
-    int len_str1 = strlen(str1);
-    int len_str2 = strlen(str2);
-    int counter = 0;
-    int i = 0;
+int substring(char *str1, char *str2){
 
-    if (len_str1 < len_str2)
-    {
-        return FALSE;
-    }
+    int numOfSimilarLetters = 0;
+    int len1 = strlen(str1);
+    int len2 = strlen(str2);
+    
+    if (len1 < len2) return 0;
 
-    for (int j = 0; j < len_str1 && (len_str2 - i) != 0; j++)
-    {
-        if (*(str2 + i) == *(str1 + j))
-        {
-            counter++;
-            i++;
+    for (int i=0; i<len1-len2+1; i++){
+        for (int j=0; j<len2; j++){
+            if (*(str1+i+j) == *(str2+j)){
+                numOfSimilarLetters++;
+            }
+            else break; // else move to next i 
         }
+        if (numOfSimilarLetters == len2){
+            return 1;
+        }
+        else numOfSimilarLetters = 0;
     }
-
-    if (counter == len_str2)
-    {
-        return TRUE;
-    }
-    return FALSE;
+    
+    return 0;
 }
+
+// int substring(char *str1, char *str2)
+// {
+//     int len_str1 = strlen(str1);
+//     int len_str2 = strlen(str2);
+//     int counter = 0;
+//     int i = 0;
+
+//     if (len_str1 < len_str2)
+//     {
+//         return FALSE;
+//     }
+
+//     for (int j = 0; j < len_str1 && (len_str2 - i) != 0; j++)
+//     {
+//         if (*(str2 + i) == *(str1 + j))
+//         {
+//             counter++;
+//             i++;
+//         }
+//     }
+
+//     if (counter == len_str2)
+//     {
+//         return TRUE;
+//     }
+//     return FALSE;
+// }
 
 int similar(char *s, char *t, int n)
 {
@@ -137,7 +155,7 @@ void print_lines(char *str)
         // printf("%s\n", line);
 
         lineToPrint = substring(line, str);
-        printf("lineToPrint:  %d", lineToPrint);
+        // printf("lineToPrint:  %d", lineToPrint);
 
         if (lineToPrint)
         {
@@ -145,6 +163,7 @@ void print_lines(char *str)
             {
                 printf("%c", line[i]);
             }
+            printf("\n");
         }
     }
 }

@@ -1,0 +1,4 @@
+-lineToPrint:  0-his is a text filelineToPrint:  0-looking for the word catlineToPrint:  1looking for the word cat
+-the program should print also catslineToPrint:  1the program should print also cats
+-and crat and lcat but it shouldn'tlineToPrint:  1and crat and lcat but it shouldn't
+-print the word caatslineToPrint:  0-ÿlineToPrint:  0
