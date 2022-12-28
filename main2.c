@@ -3,19 +3,23 @@
 #define WORD 30
 
 int main(){
-    
+    // printf("hello");
 
-    char word[WORD] = {0};
+    char word[WORD]={0};
     get_word(word);
-
+    // printf("%s",word);
     char option = getchar();
+    printf("-%c\n",getchar());
+    printf("-%c\n",getchar());
+    printf("-%c\n",getchar());
+
     if ( option == 'a'){
         print_lines(word);
     }
-    else if (option == 'b')
-    {
-        print_similar_words(word);
-    }
+    // else if (option == 'b')
+    // {
+    //     print_similar_words(word);
+    // }
 
 
 
