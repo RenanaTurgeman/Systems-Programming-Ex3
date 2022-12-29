@@ -147,15 +147,11 @@ void print_lines(char *str)
 
     while (line_len != 0 && line_len != '\r')
     {
-        // for (int i = 0; i < 10; i++)
-        // {
-
         char line[LINE] = {0};
         line_len = get_line(line);
-        // printf("%s\n", line);
-
+        
         lineToPrint = substring(line, str);
-        // printf("lineToPrint:  %d", lineToPrint);
+        
 
         if (lineToPrint)
         {
@@ -172,6 +168,8 @@ void print_similar_words(char *str)
 {
     int word_len = 0;
     int wordToPrint = FALSE;
+
+   // getchar(); //?
 
     while (word_len != ' ' && word_len != '\t' && word_len != '\r' && word_len != '\n')
     {

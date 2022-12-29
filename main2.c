@@ -16,9 +16,9 @@ int main(){
     if ( option == 'a'){
         print_lines(word);
     }
-    // else if (option == 'b')
-    // {
-    //     print_similar_words(word);
-    // }
+    else if (option == 'b')
+    {
+        print_similar_words(word);
+    }
     return 0 ;
 }
