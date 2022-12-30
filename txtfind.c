@@ -25,7 +25,6 @@ int get_line(char *s)
         s[i] = c;
         numOfChars++;
     }
-   // getchar();
     return numOfChars - 1;
 }
 
@@ -76,8 +75,8 @@ int substring(char *str1, char *str2){
 
 int similar(char *s, char *t, int n)
 {
-    int len_s = strlen(s); // get_word(s);
-    int len_t = strlen(t); // get_word(t);
+    int len_s = strlen(s); 
+    int len_t = strlen(t); 
 
     if (substring(s, t) && substring(t, s) && n == 0)
     {

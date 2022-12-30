@@ -3,11 +3,10 @@
 #define WORD 30
 
 int main(){
-    // printf("hello");
 
     char word[WORD]={0};
     get_word(word);
-    // printf("%s",word);
+
     char option = getchar();
     getchar();
     getchar();
