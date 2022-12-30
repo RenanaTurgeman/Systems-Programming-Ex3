@@ -74,34 +74,6 @@ int substring(char *str1, char *str2){
     return 0;
 }
 
-// int substring(char *str1, char *str2)
-// {
-//     int len_str1 = strlen(str1);
-//     int len_str2 = strlen(str2);
-//     int counter = 0;
-//     int i = 0;
-
-//     if (len_str1 < len_str2)
-//     {
-//         return FALSE;
-//     }
-
-//     for (int j = 0; j < len_str1 && (len_str2 - i) != 0; j++)
-//     {
-//         if (*(str2 + i) == *(str1 + j))
-//         {
-//             counter++;
-//             i++;
-//         }
-//     }
-
-//     if (counter == len_str2)
-//     {
-//         return TRUE;
-//     }
-//     return FALSE;
-// }
-
 int similar(char *s, char *t, int n)
 {
     int len_s = strlen(s); // get_word(s);
@@ -169,8 +141,6 @@ void print_similar_words(char *str)
     int word_len = 0;
     int wordToPrint = FALSE;
 
-   // getchar(); //?
-
     while (word_len != ' ' && word_len != '\t' && word_len != '\r' && word_len != '\n')
     {
         char word[WORD] = {0};
@@ -179,7 +149,8 @@ void print_similar_words(char *str)
         {
             return;
         }
-        wordToPrint = similar(word, str, 1);
+
+        wordToPrint = similar(word, str, 1)||similar(word, str ,0);
 
         if (wordToPrint)
         {
