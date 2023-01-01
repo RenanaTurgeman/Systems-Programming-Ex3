@@ -46,7 +46,7 @@ int get_word(char w[])
     }
     w[numOfChars] = '\0';
 
-    return numOfChars + 1;
+    return numOfChars;
 }
 
 int substring(char *str1, char *str2){
