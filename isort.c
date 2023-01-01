@@ -47,6 +47,7 @@ void insertion_sort(int *arr, int len){
         
     }
     
-    print_arr(arr , len);        
+    print_arr(arr , len);      
+    printf("\n");  
        
 }
